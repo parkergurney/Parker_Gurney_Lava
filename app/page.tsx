@@ -1,11 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
+import Sidebar from './components/Sidebar'
 
 const page = () => {
 	return (
-		<div>
-			hi
-			<Image src='/logoimage.png' alt='Logo' width={200} height={200} />
+		<div className='flex'>
+			<Sidebar />
+			Home
 		</div>
 	)
 }
