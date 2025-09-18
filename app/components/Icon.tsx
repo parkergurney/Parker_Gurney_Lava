@@ -4,7 +4,9 @@ const Icon = ({ active, children, onClick }: { active: boolean; children: ReactN
 	return (
 		<button 
 			onClick={onClick}
-			className={`w-[36px] h-[36px] flex justify-center items-center hover:bg-black/10 transition-colors ${active ? 'text-[var(--icon-active)]' : 'text-[var(--icon-inactive)]'}`}
+			className={`w-[36px] h-[36px] cursor-pointer flex justify-center items-center border border-transparent hover:border-[var(--icon-border)] hover:bg-[var(--icon-fill)]
+				rounded-sm
+				transition-colors ${active ? 'text-[var(--icon-active)]' : 'text-[var(--icon-inactive)]'}`}
 		>
 			{children}
 		</button>

@@ -5,6 +5,7 @@ import Icon from './Icon'
 
 const Sidebar = () => {
 	const [activeTab, setActiveTab] = useState('components')
+	const [isExpanded, setIsExpanded] = useState(false)
 	const icons = [
 		{
 			name: 'components',
@@ -56,22 +57,36 @@ const Sidebar = () => {
 		}
 	]
 	return (
-		<div className='h-screen w-[48px] border-r border-[var(--tertiary)] bg-sidebar-gradient flex flex-col p-[6px] items-center space-y-[8px] pt-[12px]'>
-			<Image src='/logoimage.png' alt='Logo' width={36} height={36} />
-			{icons.map(({ name, svg }) => {
-				if (name === 'separator') {
-					return <div key={name} className="w-[36px] h-[1px] bg-[var(--tertiary)]" />
-				}
-				return (
-					<Icon 
-						key={name}
-						active={activeTab === name}
-						onClick={() => setActiveTab(name)}
-					>
-						{svg}
-					</Icon>
-				)
-			})}
+		<div className={`h-screen border-r border-[var(--tertiary)] bg-sidebar-gradient flex flex-col justify-between items-start transition-all duration-300 py-[12px]
+		${isExpanded ? 'w-[200px] p-[12px]' : 'w-[48px] p-[6px]'}`}>
+			<div className='flex flex-col items-center space-y-[8px]'>
+				<Image 
+					src='/logoimage.png' 
+					alt='Logo' 
+					width={36} 
+					height={36} 
+					className='cursor-pointer'
+					onClick={() => setIsExpanded(!isExpanded)}
+				/>
+				{icons.map(({ name, svg }) => {
+					if (name === 'separator') {
+						return <div key={name} className="w-[36px] h-[1px] bg-[var(--tertiary)]" />
+					}
+					return (
+						<Icon
+							key={name}
+							active={activeTab === name}
+							onClick={() => setActiveTab(name)}
+						>
+							{svg}
+						</Icon>
+					)
+				})}
+			</div>
+			<div className='flex flex-col items-center space-y-[12px]'>
+				<Image src='/logout.svg' alt='Logout Button' width={20} height={20} />
+				<Image src='/pfp.png' alt='Profile Photo' width={36} height={36} />
+			</div>
 		</div>
 
 	)
