@@ -60,6 +60,7 @@ const Sidebar = () => {
 		<div className={`h-screen border-r border-[var(--tertiary)] bg-sidebar-gradient flex flex-col justify-between items-start transition-all duration-300 py-[12px]
 		${isExpanded ? 'w-[200px] p-[12px]' : 'w-[48px] p-[6px]'}`}>
 			<div className='flex flex-col items-center space-y-[8px]'>
+				<div className='w-full flex'>
 				<Image 
 					src='/logoimage.png' 
 					alt='Logo' 
@@ -68,6 +69,10 @@ const Sidebar = () => {
 					className='cursor-pointer'
 					onClick={() => setIsExpanded(!isExpanded)}
 				/>
+				{isExpanded &&
+					<h2>Tally</h2>
+				}
+				</div>
 				{icons.map(({ name, svg }) => {
 					if (name === 'separator') {
 						return <div key={name} className="w-[36px] h-[1px] bg-[var(--tertiary)]" />
@@ -77,6 +82,8 @@ const Sidebar = () => {
 							key={name}
 							active={activeTab === name}
 							onClick={() => setActiveTab(name)}
+							isExpanded={isExpanded}
+							name={name}
 						>
 							{svg}
 						</Icon>
