@@ -95,7 +95,9 @@ const Sidebar = () => {
 					${isExpanded ? 'w-[176px]' : 'w-[36px]'}`}>
 					<Image src='/logout.svg' alt='Logout Button' width={20} height={20} />
 					{isExpanded &&
-						<p className='text-[var(--red)] text-sm'>Logout</p>
+						<p className={`text-[var(--red)] text-sm duration-300 ease-in-out ${isExpanded? 'opacity-100' : 'opacity-0'}`}>
+							Logout
+						</p>
 					}
 				</div>
 				<div className={`flex space-x-[12px] items-center h-[36px]
@@ -107,7 +109,7 @@ const Sidebar = () => {
 								<h4 className='whitespace-nowrap font-semibold text-sm/4'>Don't Ruin It</h4>
 								<p className='whitespace-nowrap text-xs/4 text-[var(--icon-inactive)]'>Pro Crafter</p>
 							</div>
-								<Image src='/menu.svg' alt='More Details' width={12} height={12} />
+							<Image src='/menu.svg' alt='More Details' width={12} height={12} />
 						</div>
 					}
 				</div>
