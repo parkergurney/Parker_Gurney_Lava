@@ -105,7 +105,6 @@ const Console: React.FC<ConsoleProps> = ({ formOpen, setFormOpen }) => {
 							</div>
 							<input type="text" className='h-[36px] w-full text-sm pl-8 pr-2 outline-none border-[#D4D4D4] border rounded-sm'
 								placeholder='Search Materials' />
-								
 						</div>
 						<div ref={sortRef} className="flex relative">
 							<button className={`self-center cursor-pointer rounded-sm ${openMenu === "sort" ? "bg-[#F5F5F5]" : ""}`}
