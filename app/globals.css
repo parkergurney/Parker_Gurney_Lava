@@ -19,6 +19,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Chivo Mono';
+  src: url('/fonts/ChivoMono-Light.woff2') format('woff2'),
+       url('/fonts/ChivoMono-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --primary: #404040;
   --secondary: #8C8C8C;
@@ -51,3 +60,12 @@ body {
   background: var(--gradient-sidebar);
 }
 
+.chivo-mono {
+  font-family: 'Chivo Mono', monospace;
+  font-weight: 300;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
