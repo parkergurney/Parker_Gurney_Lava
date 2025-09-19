@@ -6,7 +6,7 @@ const Icon = ({ active, children, onClick, isExpanded, name }: { active: boolean
 			onClick={onClick}
 			className={`h-[36px] w-full cursor-pointer flex p-[6px] justify-start items-center border hover:border-[var(--icon-border)] hover:bg-[var(--icon-fill)] rounded-sm
 				${isExpanded ? 'max-w-[176px]' : 'max-w-[36px]'}
-				transition-colors ${active ? 'text-[var(--icon-active)] border-[var(--icon-border)] bg-[var(--icon-fill)]' : 'border-transparent text-[var(--icon-inactive)]'}`}
+				transition-all ${active ? 'text-[var(--icon-active)] border-[var(--icon-border)] bg-[var(--icon-fill)]' : 'border-transparent text-[var(--icon-inactive)]'}`}
 		>
 			<div className='flex space-x-[12px]'>
 				{children}

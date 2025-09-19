@@ -115,10 +115,10 @@ const Sidebar = () => {
 						<Image src="/pfp.png" alt="Profile Photo" width={36} height={36} />
 					</div>
 					<div
-						className={`overflow-hidden transition-all duration-300 ease-in-out ml-[12px]
-      ${isExpanded ? 'max-w-[120px] opacity-100' : 'max-w-0 opacity-0'}`}
+						className={`overflow-hidden w-full transition-all duration-300 ease-in-out ml-[12px]
+      ${isExpanded ? 'max-w-[200px] opacity-100' : 'max-w-0 opacity-0'}`}
 					>
-						<div className="flex justify-between w-full">
+						<div className="flex justify-between w-full pr-[8px]">
 							<div>
 								<h4 className="whitespace-nowrap font-semibold text-sm/4">Don't Ruin It</h4>
 								<p className="whitespace-nowrap text-xs/4 text-[var(--icon-inactive)]">Pro Crafter</p>
