@@ -59,23 +59,31 @@ const Sidebar = () => {
 	return (
 		<div className={`h-screen border-r border-[var(--tertiary)] bg-sidebar-gradient flex flex-col justify-between items-start transition-all duration-300 py-[12px]
 		${isExpanded ? 'w-[200px] px-[12px]' : 'w-[48px] px-[6px]'}`}>
-			<div className='flex flex-col items-center space-y-[8px]'>
-				<div className='w-full flex space-x-[4px]'>
-					<Image
-						src='/logoimage.png'
-						alt='Logo'
-						width={36}
-						height={36}
-						className='cursor-pointer'
-						onClick={() => setIsExpanded(!isExpanded)}
-					/>
-					{isExpanded &&
-						<h2 className='text-[var(--blue)] font-semibold text-xl'>Tally</h2>
-					}
+			<div className='flex flex-col items-start space-y-[8px]'>
+				<div className="flex items-center w-[176px] space-x-[4px]">
+					<div className="w-[36px] flex-shrink-0">
+						<Image
+							src="/logoimage.png"
+							alt="Logo"
+							width={36}
+							height={36}
+							className="cursor-pointer"
+							onClick={() => setIsExpanded(!isExpanded)}
+						/>
+					</div>
+					<div
+						className={`overflow-hidden transition-all duration-300 ease-in-out 
+      ${isExpanded ? 'max-w-[120px] opacity-100' : 'max-w-0 opacity-0'}`}
+					>
+						<h2 className="text-[var(--blue)] font-semibold text-xl whitespace-nowrap">
+							Tally
+						</h2>
+					</div>
 				</div>
+
 				{icons.map(({ name, svg }) => {
 					if (name === 'separator') {
-						return <div key={name} className="w-[36px] h-[1px] bg-[var(--tertiary)]" />
+						return <div key={name} className={`${isExpanded ? 'w-[176px] self-start' : 'w-[36px]'} h-[1px] bg-[var(--tertiary)] transition-all duration-300`} />
 					}
 					return (
 						<Icon
@@ -91,27 +99,33 @@ const Sidebar = () => {
 				})}
 			</div>
 			<div className='flex flex-col items-center space-y-[12px]'>
-				<div className={`flex space-x-[12px] p-[8px] h-[36px]
-					${isExpanded ? 'w-[176px]' : 'w-[36px]'}`}>
-					<Image src='/logout.svg' alt='Logout Button' width={20} height={20} />
-					{isExpanded &&
-						<p className={`text-[var(--red)] text-sm duration-300 ease-in-out ${isExpanded? 'opacity-100' : 'opacity-0'}`}>
-							Logout
-						</p>
-					}
+				<div className="flex items-center h-[36px] p-[8px] w-[176px]">
+					<div className="w-[20px] flex-shrink-0">
+						<Image src="/logout.svg" alt="Logout Button" width={20} height={20} />
+					</div>
+					<div
+						className={`overflow-hidden transition-all duration-300 ease-in-out ml-[12px]
+      ${isExpanded ? 'max-w-[120px] opacity-100' : 'max-w-0 opacity-0'}`}
+					>
+						<p className="text-[var(--red)] text-sm whitespace-nowrap">Logout</p>
+					</div>
 				</div>
-				<div className={`flex space-x-[12px] items-center h-[36px]
-					${isExpanded ? 'w-[176px]' : 'w-[36px]'}`}>
-					<Image src='/pfp.png' alt='Profile Photo' width={36} height={36} />
-					{isExpanded &&
-						<div className='flex justify-between w-full'>
+				<div className="flex items-center h-[36px] w-[176px]">
+					<div className="w-[36px] flex-shrink-0">
+						<Image src="/pfp.png" alt="Profile Photo" width={36} height={36} />
+					</div>
+					<div
+						className={`overflow-hidden transition-all duration-300 ease-in-out ml-[12px]
+      ${isExpanded ? 'max-w-[120px] opacity-100' : 'max-w-0 opacity-0'}`}
+					>
+						<div className="flex justify-between w-full">
 							<div>
-								<h4 className='whitespace-nowrap font-semibold text-sm/4'>Don't Ruin It</h4>
-								<p className='whitespace-nowrap text-xs/4 text-[var(--icon-inactive)]'>Pro Crafter</p>
+								<h4 className="whitespace-nowrap font-semibold text-sm/4">Don't Ruin It</h4>
+								<p className="whitespace-nowrap text-xs/4 text-[var(--icon-inactive)]">Pro Crafter</p>
 							</div>
-							<Image src='/menu.svg' alt='More Details' width={12} height={12} />
+							<Image src="/menu.svg" alt="More Details" width={12} height={12} />
 						</div>
-					}
+					</div>
 				</div>
 			</div>
 		</div>
