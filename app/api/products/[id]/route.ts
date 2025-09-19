@@ -5,8 +5,10 @@ const prisma = new PrismaClient()
 
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
+  const { id } = context.params
+
   try {
     const { stock } = await req.json()
     if (typeof stock !== 'number') {
@@ -14,7 +16,7 @@ export async function PATCH(
     }
 
     const updated = await prisma.product.update({
-      where: { id: params.id },
+      where: { id },
       data: { stock },
     })
 
