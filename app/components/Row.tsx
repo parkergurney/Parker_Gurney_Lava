@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import Numbers from './Numbers'
 
 interface RowProps {
@@ -17,21 +16,11 @@ interface RowProps {
 const sizes = ['none', 'S', 'M', 'L']
 
 const Row: React.FC<RowProps> = ({ product, onStockChange }) => {
-	const updateStock = async (newStock: number) => {
-		await fetch(`/api/products/${product.id}`, {
-			method: 'PATCH',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ stock: newStock }),
-		})
-		onStockChange?.(product.id, newStock)
-	}
 	return (
-		<div className="flex items-center justify-between rounded-sm h-[48px] w-full">
+		<div className="flex items-start border sm:border-none p-2 space-y-2 sm:p-0 sm:space-y-0 border-[#D4D4D4] sm:items-center justify-between rounded-sm flex-col h-full sm:flex-row sm:h-[48px] w-full">
 			<div className="flex items-center space-x-[16px]">
 				{product.imageUrl && (
-					<div className='bg-[#FAFAFA] border border-[#D4D4D4] rounded-sm w-[48px] h-[48px] flex justify-center items-center'>
-						<img src={product.imageUrl} alt={product.name} className="w-[34px] h-[34px]" />
-					</div>
+					<img src={product.imageUrl} alt={product.name} className="border border-[#D4D4D4] rounded-sm w-[48px] h-[48px] object-contain" />
 				)}
 				<span className="font-medium text-sm">{product.name} / {sizes[product.size]}</span>
 			</div>

@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { PrismaClient } from '../../../generated/prisma'
+import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
+
 export async function PATCH(req: NextRequest, context: any) {
-  const { id } = context.params
+  const { id } = await context.params
   try {
     const { stock } = await req.json()
     if (typeof stock !== 'number') {

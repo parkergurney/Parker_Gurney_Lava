@@ -79,13 +79,15 @@ const ProductForm: React.FC<ProductFormProps> = ({ onClose }) => {
 						onChange={(e) => setName(e.target.value)}
 						className="h-[36px] w-full text-sm px-3 outline-none border border-[#D4D4D4] rounded-sm" />
 					<div className="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0 w-full">
+						<div className="h-[36px] text-sm border outline-none border-[#D4D4D4] rounded-sm mr-8">
 						<select value={size} onChange={(e) => setSize(e.target.value)}
-							className="h-[36px] text-sm px-2 border outline-none border-[#D4D4D4] rounded-sm appearance-none pr-8" >
+							className="h-full text-sm px-2 outline-none mr-2" >
 							<option value="" className='text-[#D4D4D4]'>Item Size</option>
 							<option value="1">Small</option>
 							<option value="2">Medium</option>
 							<option value="3">Large</option>
 						</select>
+						</div>
 						<input type="number" placeholder="Amount In Stock" value={stock}
 							onChange={(e) => setStock(e.target.value)}
 							className="h-[36px] w-full text-sm px-3 outline-none border border-[#D4D4D4] rounded-sm" />

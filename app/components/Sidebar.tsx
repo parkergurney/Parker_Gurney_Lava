@@ -3,9 +3,14 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Icon from './Icon'
 
-const Sidebar = () => {
+interface SidebarProps {
+  isOpen: boolean
+  setIsOpen: (open: boolean) => void
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
 	const [activeTab, setActiveTab] = useState('components')
-	const [isExpanded, setIsExpanded] = useState(false)
+	
 	const icons = [
 		{
 			name: 'components',
@@ -57,43 +62,29 @@ const Sidebar = () => {
 		}
 	]
 	return (
-		<div className={`h-screen border-r border-[var(--tertiary)] bg-sidebar-gradient flex flex-col justify-between items-start transition-all duration-300 py-[12px]
-		${isExpanded ? 'w-[200px] px-[12px]' : 'w-[48px] px-[6px]'}`}>
+		<div className={`h-screen max-h-screen border-r border-[var(--tertiary)] bg-sidebar-gradient flex flex-col justify-between items-start transition-all duration-300 py-[12px]
+		${isOpen ? 'w-[200px] px-[12px]' : 'w-[48px] px-[6px]'}`}>
 			<div className='flex flex-col items-start space-y-[8px]'>
 				<div className="flex items-center w-[176px] space-x-[4px]">
 					<div className="w-[36px] flex-shrink-0">
-						<Image
-							src="/sidebar/logoimage.png"
-							alt="Logo"
-							width={36}
-							height={36}
-							className="cursor-pointer"
-							onClick={() => setIsExpanded(!isExpanded)}
-						/>
+						<Image src="/sidebar/logoimage.png" alt="Logo"
+							width={36} height={36} className="cursor-pointer"
+							onClick={() => setIsOpen(!isOpen)} />
 					</div>
-					<div
-						className={`overflow-hidden transition-all duration-300 ease-in-out 
-      ${isExpanded ? 'max-w-[120px] opacity-100' : 'max-w-0 opacity-0'}`}
-					>
+					<div className={`overflow-hidden transition-all duration-300 ease-in-out 
+      ${isOpen ? 'max-w-[120px] opacity-100' : 'max-w-0 opacity-0'}`}>
 						<h2 className="text-[var(--blue)] font-semibold text-xl whitespace-nowrap">
 							Tally
 						</h2>
 					</div>
 				</div>
-
 				{icons.map(({ name, svg }) => {
 					if (name === 'separator') {
-						return <div key={name} className={`${isExpanded ? 'w-[176px] self-start' : 'w-[36px]'} h-[1px] bg-[var(--tertiary)] transition-all duration-300`} />
+						return <div key={name} className={`${isOpen ? 'w-[176px] self-start' : 'w-[36px]'} h-[1px] bg-[var(--tertiary)] transition-all duration-300`} />
 					}
 					return (
-						<Icon
-							key={name}
-							active={activeTab === name}
-							onClick={() => setActiveTab(name)}
-							isExpanded={isExpanded}
-							name={name}
-						>
-							{svg}
+						<Icon key={name} active={activeTab === name} onClick={() => setActiveTab(name)}
+							isExpanded={isOpen} name={name}> {svg}
 						</Icon>
 					)
 				})}
@@ -103,10 +94,8 @@ const Sidebar = () => {
 					<div className="w-[20px] flex-shrink-0">
 						<Image src="/sidebar/logout.svg" alt="Logout Button" width={20} height={20} />
 					</div>
-					<div
-						className={`overflow-hidden transition-all duration-300 ease-in-out ml-[12px]
-      ${isExpanded ? 'max-w-[120px] opacity-100' : 'max-w-0 opacity-0'}`}
-					>
+					<div className={`overflow-hidden transition-all duration-300 ease-in-out ml-[12px]
+      ${isOpen ? 'max-w-[120px] opacity-100' : 'max-w-0 opacity-0'}`}>
 						<p className="text-[var(--red)] text-sm whitespace-nowrap">Logout</p>
 					</div>
 				</div>
@@ -114,10 +103,8 @@ const Sidebar = () => {
 					<div className="w-[36px] flex-shrink-0">
 						<Image src="/sidebar/pfp.png" alt="Profile Photo" width={36} height={36} />
 					</div>
-					<div
-						className={`overflow-hidden w-full transition-all duration-300 ease-in-out ml-[12px]
-      ${isExpanded ? 'max-w-[200px] opacity-100' : 'max-w-0 opacity-0'}`}
-					>
+					<div className={`overflow-hidden w-full transition-all duration-300 ease-in-out ml-[12px]
+      ${isOpen ? 'max-w-[200px] opacity-100' : 'max-w-0 opacity-0'}`}>
 						<div className="flex justify-between w-full pr-[8px]">
 							<div>
 								<h4 className="whitespace-nowrap font-semibold text-sm/4">Don't Ruin It</h4>
