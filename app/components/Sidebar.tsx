@@ -63,7 +63,7 @@ const Sidebar = () => {
 				<div className="flex items-center w-[176px] space-x-[4px]">
 					<div className="w-[36px] flex-shrink-0">
 						<Image
-							src="/logoimage.png"
+							src="/sidebar/logoimage.png"
 							alt="Logo"
 							width={36}
 							height={36}
@@ -101,7 +101,7 @@ const Sidebar = () => {
 			<div className='flex flex-col items-center space-y-[12px]'>
 				<div className="flex items-center h-[36px] p-[8px] w-[176px]">
 					<div className="w-[20px] flex-shrink-0">
-						<Image src="/logout.svg" alt="Logout Button" width={20} height={20} />
+						<Image src="/sidebar/logout.svg" alt="Logout Button" width={20} height={20} />
 					</div>
 					<div
 						className={`overflow-hidden transition-all duration-300 ease-in-out ml-[12px]
@@ -112,7 +112,7 @@ const Sidebar = () => {
 				</div>
 				<div className="flex items-center h-[36px] w-[176px]">
 					<div className="w-[36px] flex-shrink-0">
-						<Image src="/pfp.png" alt="Profile Photo" width={36} height={36} />
+						<Image src="/sidebar/pfp.png" alt="Profile Photo" width={36} height={36} />
 					</div>
 					<div
 						className={`overflow-hidden w-full transition-all duration-300 ease-in-out ml-[12px]
@@ -123,7 +123,7 @@ const Sidebar = () => {
 								<h4 className="whitespace-nowrap font-semibold text-sm/4">Don't Ruin It</h4>
 								<p className="whitespace-nowrap text-xs/4 text-[var(--icon-inactive)]">Pro Crafter</p>
 							</div>
-							<Image src="/menu.svg" alt="More Details" width={12} height={12} />
+							<Image src="/sidebar/menu.svg" alt="More Details" width={12} height={12} />
 						</div>
 					</div>
 				</div>
