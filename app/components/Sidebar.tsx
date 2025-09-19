@@ -58,20 +58,20 @@ const Sidebar = () => {
 	]
 	return (
 		<div className={`h-screen border-r border-[var(--tertiary)] bg-sidebar-gradient flex flex-col justify-between items-start transition-all duration-300 py-[12px]
-		${isExpanded ? 'w-[200px] p-[12px]' : 'w-[48px] p-[6px]'}`}>
+		${isExpanded ? 'w-[200px] px-[12px]' : 'w-[48px] px-[6px]'}`}>
 			<div className='flex flex-col items-center space-y-[8px]'>
-				<div className='w-full flex'>
-				<Image 
-					src='/logoimage.png' 
-					alt='Logo' 
-					width={36} 
-					height={36} 
-					className='cursor-pointer'
-					onClick={() => setIsExpanded(!isExpanded)}
-				/>
-				{isExpanded &&
-					<h2>Tally</h2>
-				}
+				<div className='w-full flex space-x-[4px]'>
+					<Image
+						src='/logoimage.png'
+						alt='Logo'
+						width={36}
+						height={36}
+						className='cursor-pointer'
+						onClick={() => setIsExpanded(!isExpanded)}
+					/>
+					{isExpanded &&
+						<h2 className='text-[var(--blue)] font-semibold text-xl'>Tally</h2>
+					}
 				</div>
 				{icons.map(({ name, svg }) => {
 					if (name === 'separator') {
@@ -91,8 +91,26 @@ const Sidebar = () => {
 				})}
 			</div>
 			<div className='flex flex-col items-center space-y-[12px]'>
-				<Image src='/logout.svg' alt='Logout Button' width={20} height={20} />
-				<Image src='/pfp.png' alt='Profile Photo' width={36} height={36} />
+				<div className={`flex space-x-[12px] p-[8px] h-[36px]
+					${isExpanded ? 'w-[176px]' : 'w-[36px]'}`}>
+					<Image src='/logout.svg' alt='Logout Button' width={20} height={20} />
+					{isExpanded &&
+						<p className='text-[var(--red)] text-sm'>Logout</p>
+					}
+				</div>
+				<div className={`flex space-x-[12px] items-center h-[36px]
+					${isExpanded ? 'w-[176px]' : 'w-[36px]'}`}>
+					<Image src='/pfp.png' alt='Profile Photo' width={36} height={36} />
+					{isExpanded &&
+						<div className='flex justify-between w-full'>
+							<div>
+								<h4 className='whitespace-nowrap font-semibold text-sm/4'>Don't Ruin It</h4>
+								<p className='whitespace-nowrap text-xs/4 text-[var(--icon-inactive)]'>Pro Crafter</p>
+							</div>
+								<Image src='/menu.svg' alt='More Details' width={12} height={12} />
+						</div>
+					}
+				</div>
 			</div>
 		</div>
 

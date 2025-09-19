@@ -4,14 +4,14 @@ const Icon = ({ active, children, onClick, isExpanded, name }: { active: boolean
 	return (
 		<button
 			onClick={onClick}
-			className={`h-[36px] cursor-pointer flex p-[6px] justify-start items-center border border-transparent hover:border-[var(--icon-border)] hover:bg-[var(--icon-fill)] rounded-sm
+			className={`h-[36px] cursor-pointer flex p-[6px] justify-start items-center border hover:border-[var(--icon-border)] hover:bg-[var(--icon-fill)] rounded-sm
 				${isExpanded ? 'w-[176px]' : 'w-[36px]'}
-				transition-colors ${active ? 'text-[var(--icon-active)]' : 'text-[var(--icon-inactive)]'}`}
+				transition-colors ${active ? 'text-[var(--icon-active)] border-[var(--icon-border)] bg-[var(--icon-fill)]' : 'border-transparent text-[var(--icon-inactive)]'}`}
 		>
-			<div className='flex space-x-[8px]'>
+			<div className='flex space-x-[12px]'>
 				{children}
 				<div className={`overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? 'max-w-[120px] opacity-100' : 'max-w-0 opacity-0'}`}>
-					<p className='capitalize whitespace-nowrap'>{name}</p>
+					<p className='capitalize whitespace-nowrap text-sm'>{name}</p>
 				</div>
 			</div>
 		</button>

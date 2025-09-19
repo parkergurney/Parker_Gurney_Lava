@@ -24,9 +24,10 @@
   --secondary: #8C8C8C;
   --tertiary: #D9D9D9;
 	--blue: #444EAA;
+	--red: #A51818;
 
 	--icon-active: #262626;
-  --icon-inactive: #858585;
+  --icon-inactive: #848484;
   --icon-fill: #F3F4FC;
   --icon-border: #DADCEE;
 
@@ -41,7 +42,7 @@ html {
 
 body {
   background: transparent;
-  color: var(--foreground);
+  color: var(--icon-active);
   font-family: 'Uncut Sans', Arial, Helvetica, sans-serif;
   min-height: 100vh;
 }
