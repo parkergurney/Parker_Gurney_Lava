@@ -25,7 +25,7 @@ const Numbers: React.FC<NumbersProps> = ({ productId, stock, orders, onStockChan
 				disabled={stock <= 0}
 				className={`border-r-0 rounded-l-sm ${addClass}`}
 			>
-				<Image src='/console/minus.svg' alt='Minus' width={18} height={18} />
+				<Image className='w-auto' src='/console/minus.svg' alt='Minus' width={18} height={18} />
 			</button>
 			<div className='w-1/2 h-[48px] flex flex-col'>
 				<div className={`border transition-colors border-b-0 w-full h-[30px] text-sm flex justify-center items-center ${orders > stock ? 'bg-[#FAF2E3] border-[#C19A4D]' : 'bg-white border-[#D4D4D4]'}`}>
@@ -40,7 +40,7 @@ const Numbers: React.FC<NumbersProps> = ({ productId, stock, orders, onStockChan
 				disabled={stock <= 0}
 				className={`border-l-0 rounded-r-sm ${addClass}`}
 			>
-				<Image src='/console/plus.svg' alt='Plus' width={18} height={18} />
+				<Image src='/console/plus.svg' alt='Plus' width={18} height={18} className='w-auto' />
 			</button>
 		</div>
 	)

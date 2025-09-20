@@ -68,7 +68,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
 				<div className="flex items-center w-[176px] space-x-[4px]">
 					<div className="w-[36px] flex-shrink-0">
 						<Image src="/sidebar/logoimage.png" alt="Logo"
-							width={36} height={36} className="cursor-pointer"
+							width={36} height={36} className="cursor-pointer w-auto h-[36px]"
 							onClick={() => setIsOpen(!isOpen)} />
 					</div>
 					<div className={`overflow-hidden transition-all duration-300 ease-in-out 
