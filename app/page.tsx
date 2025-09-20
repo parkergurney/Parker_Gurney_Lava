@@ -8,7 +8,7 @@ const page = () => {
 	const [isFormOpen, setIsFormOpen] = useState(false)
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	return (
-		<div className='flex'>
+		<div className='flex pb-4'>
 			<div className={`fixed w-[48px] top-0 ${isSidebarOpen ? 'z-20' : 'z-0'}`}>
 				<Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 			</div>
